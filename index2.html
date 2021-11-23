@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[쇼디락스]-인디공연 정보</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/js/resources/jquery/basic-jquery-slider.js" ></script>
+    <script>
+  $(document).ready(function(){
+  
+  $('#aboutBtn').click(function(){
+    $('#Togglebox').slideToggle();
+  })
+})
+    </script>
+        <script>
+            $(document).ready(function(){
+            
+            $('#contactBtn').click(function(){
+              $('#Togglebox2').slideToggle();
+            })
+
+            $('#ad_main_banner').bjqs({
+			'width' : 775,
+			'height' : 145,
+			'showMarkers' : true,
+			'showControls' : false,
+			'centerMarkers' : false
+		});
+          })
+              </script>
+
+
+</head>
+<body>
+    <div id="container">
+        <div id="head">
+            
+                <a href="#"><img id="logo" src="src/MainD.png"></a>
+            
+
+        </div>
+        <div id="navContents">
+            <div id="displayPoster">
+                
+            </div>
+            <div id="displayRight"> 
+                <div id="goToAll"><a href="http://localhost:81/html/mysqlcs.php"><h1>전체 일정</h1></a></div>
+                <div id="newConcert">신규 공연</div>
+                <div id="todayConcert">금일
+                    <script type="text/javascript">
+                        var today=new Date();
+                        var month=today.getMonth()+1;
+                        var date=today.getDate();
+                        document.write("(",month,"/",date,"일",")");
+                    </script>
+                    공연</div>
+                <div id="diggingMagazine">
+                    <img src="src/DM.png">
+                </div>
+                <div id="ourInfo">
+                    <div id="aboutBtn">
+                        <p><span class="to-right-underline">about</span></p>
+                   
+                        </div>
+                        <div id="contactBtn">
+                            <p><span class="to-right-underline">contact</span></p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

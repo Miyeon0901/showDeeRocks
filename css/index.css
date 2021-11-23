@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+/* Header Line */
+.Header {
+    text-align: center;
+}
+/* Header Line */
+
+/* Widget List */
+.Widget {
+    display: grid;
+    text-align: center;
+    justify-items: center;
+
+    padding: 0;
+}
+#sns{
+    margin-top:10px;
+    text-align:center;
+}
+
+/*위젯이 빠져서*/
+/*.Widget .List {
+    display: block;
+    text-decoration: none;
+
+    background-color: black;
+    color: white;
+    width: 250px;
+    height: 18px;
+    padding-left: 0;
+    padding-bottom: 2px;
+    border: black 2px solid;
+    margin: 4px;
+*/
+    /* change mouse pointer to finger image when mouse cursor hovers on */
+    /*cursor: pointer;*/
+    /* control speed of changing background color when mouse cursor hovers on */
+   /* transition: color 0.3s ease;
+    transition: background 0.3s ease;
+} */
+/*
+.Widget .List:hover {
+    /* status that will change when mouse cursor hovers on */
+    /*background-color: white;
+    color: black
+}
+.Widget #list01 {
+    text-decoration: none;
+}
+.Widget #list02 {
+
+}
+.Widget #list03 {
+
+}
+.Widget #list04 {
+
+}
+*/
+#printToday{
+    /*text-align:center;*/
+    font-family: 'Jua', sans-serif;
+    font-size:xx-large;
+}
+#slider{    
+    width:100%;
+}
+.bx-wrapper{
+    left:35%;
+    width:30%;
+}
+/*
+#btn{
+    width:300px;
+    height:50px;
+    background-color:#fff;
+    cursor:pointer; 
+    margin:0 auto; 
+    text-align:center; 
+    line-height:50px;
+}
+
+#slideTogglebox{
+    width:300px; 
+    height:300px; 
+    background-color:beige; 
+    display:none; }
+*/
+
+/* Widget List */
+
+/* Comment Line */
+.Comment {
+    display: grid;
+    grid-template-columns: 1fr [content] 7fr 1fr;
+    margin-top: 47px;
+}
+
+.Comment .Comment-line {
+text-align:center;
+font-family: 'Black Han Sans', sans-serif;
+height:20px;
+}
+
+/* Comment Line */
+
+/* Subtitle */
+.Subtitle {
+    display: grid;
+    grid-template-columns: 1fr [content] 7fr 1fr;
+    margin-top: 50px;
+}
+.Subtitle .Subtitle-line {
+    font-size: 23px;
+}
+.Subtitle .Subtitle-line .Subtitle-content {
+    font-family: 'Black Han Sans', sans-serif;
+
+}
+/* Subtitle */
+
+/* Article */
+
+.Article {
+    display: grid;
+    grid-template-columns: 1fr [content] 7fr 1fr;
+    margin-top: 50px;
+    background:linear-gradient( to bottom, #FFF,#F2EFEF);
+}
+#thirdWeek{
+    border-top: 1px dashed black;
+}
+
+#fourthWeek{
+    border-top: 1px dashed black;
+}
+#fifthWeek{
+    border-top: 1px dashed black;
+}
+#sixthWeek{
+    border-top: 1px dashed black
+}
+.Article .Line{
+    margin-top:3px;
+}
+.Article .Date {
+    margin-top: 5px;
+    font-weight: bold;
+    font-family: 'Hahmlet', serif;
+}
+.Article .Date .Red {
+    color: red;
+}
+.Article .Artist{
+    font-family: 'Hahmlet', serif;
+}
+.Article .Site{
+    font-family: 'Hahmlet', serif;
+    font-weight:bold;
+}
+.Article .Time{
+    font-family: 'Hahmlet', serif;
+    font-weight:bold;
+}
+.Article .Date .Blue {
+    color: blue;
+}
+
+.Article .LineNew {
+    margin-top: 5px;
+    color: rgb(67, 123, 255);
+}
+.Article .Link {
+
+}
+/* 예매 링크 */
+.Article .Link .Design1-1 {
+    color: rgb(253, 79, 87);
+}
+/* 예매 정보 링크 */
+.Article .Link .Design2-1 {
+    color: rgb(253, 79, 87);
+}
+/* 현장 예매 */
+.Article .Link .Design3-1 {
+    color: rgb(6, 135, 129);
+}
+/* 무료 입장 */
+.Article .Link .Design4-1 {
+    color: rgb(67, 123, 255);
+}
+/* 무료 사전 신청 */
+.Article .Link .Design4-2 {
+    color: rgb(67, 123, 255);
+}
+/* 무료입장 자율페이 */
+.Article .Link .Design5-1 {
+    color: black;
+    background: rgb(9, 202, 193);
+}
+/* 온라인 실시간 스트림 */
+.Article .Link .Design6-1 {
+    color: rgb(226, 28, 33);
+}
+/* 유튜브 실시간 스트림 */
+.Article .Link .Design6-2 {
+    color: rgb(226, 28, 33);
+}
+/* 인스타 라이브 */
+.Article .Link .Design6-3 {
+    color: rgb(226, 28, 33);
+}
+/* 트위치 실시간 스트림 */
+.Article .Link .Design6-4 {
+    color: rgb(226, 28, 33);
+}
+/* 추후 공지 */
+.Article .Link .Design7-1 {
+    color: black;
+    font-weight: bold;
+}
+/* 공연 취소 */
+.Article .Link .Design8-1 {
+    color: rgb(226, 28, 33);
+    font-weight: bold;
+}
+/* 버스킹 */
+.Article .Link .Design9-1 {
+    color: white;
+    background: black;
+}
+/* 공연 연기 */
+.Article .Link .Design10-1 {
+    color: rgb(13, 115, 13);
+}
+
+#Information{
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+

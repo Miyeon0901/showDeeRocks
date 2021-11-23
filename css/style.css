@@ -1,0 +1,268 @@
+@import url('https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+@media all and (min-width:320px){
+#container{
+    width:80%; 
+    height:80%;
+}
+/* #d3{
+    font-size:x-small;
+} */
+}
+@media all and (min-width:768px){
+    #container{
+        width:35%;
+        height:50%;
+    }
+}
+.vcenter{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+#box{
+    height: 100vh; 
+    width: 100vw;
+    
+}
+#container{    
+    text-align: center;
+    box-sizing: border-box; 
+    margin: 0px;
+}
+
+#logo{
+    /* width: 100%; height: auto; margin: 0 auto; */
+    /* text-align: left; */
+    width: 100%;
+    /* font-size: xx-large;
+    padding-bottom: 10px;
+    font-weight: 900;
+    color: black; */
+}
+#space{
+    width: 100%; 
+}
+
+#left{
+    position: relative;
+    width:49%; 
+    /* height: 63%;  */
+    float: left;
+    /* border:8px black solid; */
+    /* box-shadow: 0 0 0 8px #000 inset; */
+    overflow: hidden;
+}
+#left:before {
+    content: "";
+    display: block;
+    padding-top: 150%;
+}
+#poster{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    /*margin: 8px;*/
+}
+.swiper-slide{ /* #poster li */
+    width: 100%;
+    height: 100%;
+}
+#swiper-slide img { /* #poster img */
+    /* border:8px black solid; */
+    width: auto;
+    height: 40%;
+    margin-left:-100px;
+    /* width: 80%;
+    height: 80%; */
+    /* width: 100%; */
+} 
+
+#right{
+    position: relative;
+    /* bottom: 0px; */
+    width:49%; 
+    /* height: 60%;  */
+    float: right; 
+    /* background-image: url(../src/bgp.webp);
+    background-size: contain; */
+    
+}
+#right:before {
+    content: "";
+    display: block;
+    padding-top: 150%;
+}
+.space {
+    height: 4%;
+    width: 100%;
+    background-color: white;
+    display: block;
+}
+#menus{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    color: white;
+}
+/* #d1, #d2, #d3, #d4, #dm {
+    display:hidden;
+    color:transparent;
+} */
+/* #d1, #d2, #d3, #d4 {
+    width:100%; 
+    height: 25%;
+    
+    color: transparent;
+
+
+} */
+#right a{
+    text-decoration: none;
+    color: white;
+}
+#d1{
+    width:100%; 
+    height: 22%;
+    background-color: black;
+    background-image: none;
+    color: white;
+    /* border:8px solid black; */
+    /* font-family: 'Nanum Gothic Coding', monospace; */
+    /* padding-bottom: 10px; */
+}
+
+
+#d2{
+    width:100%; 
+    height: 22%; 
+    /* margin-top:4%; */
+    background-color: black;
+    background-image: none;
+    color: white;
+    /* font-family: 'Nanum Gothic Coding', monospace; */
+}
+#d3{
+    width:100%; 
+    height:22%; 
+    /* margin-top:4%; */
+    background-color: black;
+    background-image: none;
+    color: white;
+    /* font-family: 'Nanum Gothic Coding', monospace; */
+}
+#d4{
+    width:100%; 
+    height: 22%;
+    /* margin-top:4%; */
+    background-image: url(../src/DM.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* box-shadow: 0 0 0 8px #000 inset; */
+    /* border:8px solid black; */
+}
+#dm{
+    width:80%;
+    margin: 0 auto;
+}
+#d5{
+    width:100%; height: 5%; 
+    /* margin-top:3%; */
+}
+#aboutBtn{
+    width:50%;
+    float:left;
+    text-align: right;
+    /* margin-right: 10px; */
+    color: black;
+}
+#contactBtn{
+    width:50%;
+    float:right;
+    color: black;
+    text-align: left;
+    /* margin-left: 10px; */
+}
+
+a:visited{
+    color:white;
+    text-decoration: none;
+}
+a:hover{
+    cursor:pointer;
+}
+
+.to-right-underline{
+    position: relative;
+  }
+  .to-right-underline:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0px;
+    height: 2px;
+    margin: 5px 0 0;
+    transition: all 0.2s ease-in-out;
+    transition-duration: 0.3s;
+    opacity: 0;
+    background-color: black;
+  }
+  .to-right-underline:hover:after{
+    width: 100%;
+    opacity: 1;
+  }
+
+/* 메인 스와이퍼 */
+.swiper {
+    width: 49%;
+    /*height: 500px;*/
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+    opacity: 0;
+    transition: opacity .3s;
+}
+.swiper:hover .swiper-button-next,
+.swiper:hover .swiper-button-prev {
+    opacity: 1;
+}
+ 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="css/basic-jquery-slider.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/basic-jquery-slider.js" ></script>
+    <script>
+        $(document).ready(function(){
+
+        $('#poster').bjqs({
+        width: 400,
+        height: 500,
+        showMarkers: true,
+        'showControls' : false,
+        'centerMarkers' : false
+    });
+      })
+          </script>
+<title>ShowDeeRocks</title>
+</head>
+<body>
+    <div id="box" class="vcenter">
+        <div id="container">
+
+            <a href="#">
+                <img id="logo" src="src/logotest.png">
+            </a>
+            <!-- <div id="space"></div> -->
+            <div id="left" class="vcenter">
+                <div id="poster">
+                    <ul class="bjqs">
+                        <li><img src="src/sample1.jpeg"></li>
+                        <li><img src="src/sample2.jpeg"></li>
+                        <li><img src="src/sample3.jpeg"></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <div id="middleSpace"></div> -->
+            <div id="right">
+                <div id="menus">
+                <div id='d1' class="vcenter">
+                    <h3><a href="mysqlc.php">전 체 공 연</a></h3>
+                </div>
+                <!-- <div class="space"></div> -->
+                <div id='d2' class="vcenter">
+                    <h3>신 규 공 연</h3></div>
+                    <!-- <div class="space"></div> -->
+                <div id='d3' class="vcenter">
+                    <h3>오 늘 공 연</h3></div>
+                    <!-- <div class="space"></div> -->
+                    <a href="https://digging.kr" data-transition="fade">
+                <div id='d4' class="vcenter">
+                   <!-- <img id="dm" src="src/DM.png"> -->
+                </div>
+            </a>
+                
+            </div>
+            </div>
+            <div id='d5'>
+                    <div id="aboutBtn">
+                        <p><span class="to-right-underline">ABOUT&nbsp;&nbsp;</span></p>
+                        </div>
+                    <div id="contactBtn">
+                        <p><span class="to-right-underline">&nbsp;&nbsp;CONTACT</span></p>
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

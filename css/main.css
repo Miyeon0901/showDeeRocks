@@ -1,0 +1,128 @@
+#container{
+    width:100vw;
+    height:100vh;
+    text-align: center;
+    overflow: hidden;
+}
+#head{
+    width:100%;
+    height:30%;
+    
+}
+a{
+    text-decoration: none;
+}
+#logo{
+    width: 50%;
+    text-align: center;
+    margin-top:50px;
+    padding: 10px;
+    border:solid black 5px;
+    text-decoration: none;
+
+}
+#navContents{
+    text-align: center;
+    margin-top:50px;
+    height: 700px;
+    width:50%;
+}
+#displayPoster{
+    border:solid 5px;
+    width:49%;
+    height:100%;
+    float:left;
+    background-color:darkblue;
+}
+#displayRight{
+    width:49%;
+    height:100%;
+    float:right;
+}
+#goToAll{
+    height:26%;
+    width:100%;
+    text-align: center;
+    padding-top:30px;
+    border:solid 3px;
+}
+#goToAll a{
+    text-decoration-line: none;
+
+}
+a:visited {
+    color:black;
+  }
+#newConcert{
+    text-align: center;
+    margin-top:3%;
+    height:12%;
+    width:100%;
+    border:solid 3px;
+}
+#todayConcert{
+    text-align: center;
+    margin-top:3%;
+    height:12%;
+    width:100%;
+    border:solid 3px;
+}
+#diggingMagazine{
+    margin-top:3%;
+    height:30%;
+    width:100%;
+
+
+
+}
+#ourInfo{
+    margin-top:2%;
+    background-color: cornflowerblue;
+    height:10%;
+    width:100%;
+    text-align:center;
+    border:solid 3px;
+}
+
+#aboutBtn{
+    width:50%;
+    float:left;
+    text-align:center; 
+    font-size:x-large ;
+}
+#Togglebox{
+    width:100%;
+    background-color:beige; 
+    display:none; 
+}
+#contactBtn{
+    width:50%;
+    float:left;    
+    text-align:center; 
+    font-size:x-large ;
+
+}
+
+
+.to-right-underline{
+    position: relative;
+  }
+  .to-right-underline:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0px;
+    height: 2px;
+    margin: 5px 0 0;
+    transition: all 0.2s ease-in-out;
+    transition-duration: 0.3s;
+    opacity: 0;
+    background-color: black;
+  }
+  .to-right-underline:hover:after{
+    width: 100%;
+    opacity: 1;
+  }
+  
+
