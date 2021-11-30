@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김사장팝업이네</title>
+
+    <style>
+        .popup {
+            width: 500px;
+            height: 430px;
+            border: 1px solid rgb(217, 217, 217);
+            margin-bottom: 10px;
+        }
+        .popup_column {
+            padding: 10px;
+            align-items: center;
+        }
+        .popup_column:nth-child(1) {
+            background-color: rgb(0, 92, 153);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            display:flex;
+            justify-content: space-between;
+            height: 30px;
+        }
+        .popup_column:nth-child(2) {
+            color: rgb(64, 64, 64);
+            font-size: 12px;
+            display:flex;
+            justify-content: space-between;
+            height: 20px;
+            border-bottom: 1px solid rgba(217, 217, 217, 0.5);
+        }
+        .popup_column:nth-child(3) {
+            overflow-y: auto;
+            height: 319px;
+        }
+        .popup_column_text {
+            color: rgb(64, 64, 64);
+            font-size: 12px;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <div class="popup_column">
+            <span>ABOUT</span>
+            <a href="#" onclick="javascript:self.close();"><i class="fas fa-times"></i></a>
+        </div>
+        <div class="popup_column">
+            <h4>[showdeerocks] / since 2019.10.01</h2>
+        </div>
+        <div class="popup_column">
+            <div class="popup_column_text">
+                <pre>
+                    - 쇼디락스는 인디 공연 정보를 제공하는 사이트 / 서비스입니다.
+                    - 공연 정보 플랫폼이 없는 것이 불편해서 직접 만들었습니다.
+                    - 인디가 아닌 아티스트의 공연이 게시되는 경우도 있습니다.
+                    - 공연 등록은 전부 수동으로 이뤄집니다.
+                </pre>
+            </div>            
+        </div>
+    </div>
+
+    <div class="popup">
+        <div class="popup_column">
+            <span>CONTACT</span>
+            <a href="#" onclick="javascript:self.close();"><i class="fas fa-times"></i></a>
+        </div>
+        <div class="popup_column">
+            <h4>김사장 왔는가</h2>
+        </div>
+        <div class="popup_column">
+            <div class="popup_column_text">
+                EMAIL
+                [showdee_rocks@naver.com](mailto:showdee_rocks@naver.com)
+
+                PHONE
+                +82 10-2029-6027
+
+                Twitter <i class="fab fa-twitter-square"></i>
+                Instagram <i class="fab fa-instagram-square"></i>
+            </div>            
+        </div>
+    </div>
+
+
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

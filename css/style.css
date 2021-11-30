@@ -48,6 +48,7 @@ body {
     width:49%; 
     float: left;
     overflow: hidden;
+    cursor:hand;
 }
 #left:before {
     content: "";
@@ -222,4 +223,108 @@ body {
 .swiper:hover .swiper-button-prev {
     opacity: 1;
 }
- 
+
+.popup {
+    position: absolute;
+    
+    width: 380px;
+    height: 310px;
+    border: 1px solid rgb(217, 217, 217);
+    margin-bottom: 10px;
+    display: none;
+    position: fixed;
+    z-index: 1000;
+}
+#about{
+    top: 190px;
+    left: 40px;
+}
+#contact{
+    top:150px;
+    left:65px;
+}
+.popup_column {
+    padding: 10px;
+    align-items: center;
+    text-decoration:none;
+}
+.popup_column a:link{
+    font-size:medium;
+    color:black;
+}
+.popup_column a:visited{
+    color:black;
+    
+}
+.popup_column:nth-child(1) a {
+    text-decoration: none;
+    color: #fff;
+}
+.popup_column:nth-child(1) {
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    display:flex;
+    justify-content: space-between;
+    height: 30px;
+}
+.popup_column:nth-child(2) {
+    color: rgb(64, 64, 64);
+    font-size: 12px;
+    display:flex;
+    justify-content: space-between;
+    height: 20px;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.5);
+    background-color: #fff;
+}
+.popup_column:nth-child(3) {
+    overflow-y: auto;
+    height: 199px;
+    background-color: #fff;
+}
+.popup_column_text {
+    color: rgb(64, 64, 64);
+    font-size: 12px;
+}
+
+/*.popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 430px;
+    border: 1px solid rgb(217, 217, 217);
+    margin-bottom: 10px;
+    display: none;
+}
+.popup_column {
+    padding: 10px;
+    align-items: center;
+}
+.popup_column:nth-child(1) {
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    display:flex;
+    justify-content: space-between;
+    height: 30px;
+}
+.popup_column:nth-child(2) {
+    color: rgb(64, 64, 64);
+    font-size: 12px;
+    display:flex;
+    justify-content: space-between;
+    height: 20px;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.5);
+}
+.popup_column:nth-child(3) {
+    overflow-y: auto;
+    height: 319px;
+    background-color: #fff;
+}
+.popup_column_text {
+    color: rgb(64, 64, 64);
+    font-size: 12px;
+}*/

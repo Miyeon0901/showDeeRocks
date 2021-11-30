@@ -114,7 +114,7 @@ body{
 <!-- <div id='conText' style="background-color: red; width:50%; float:left;"> -->
 <div class='conOn' id='conAll' style="height:100vh; overflow-y:scroll;">
 <?php
-   $conn = mysqli_connect("localhost", "root", "wogusdla11" , "showdee_db");
+   $conn = mysqli_connect("showdeedb.cipqx10duwv3.us-east-2.rds.amazonaws.com", "ShowdeeMaster", "wogusdla1!" , "showdeerocks");
    $sql = "SELECT CON_DATE, CON_ID,ENTRYTYPE,CON_LINK, SITE_NAME as place, group_concat(artist) as artist from concert group by CON_ID;";
    $result = mysqli_query($conn, $sql); 
    $prevRow=null;

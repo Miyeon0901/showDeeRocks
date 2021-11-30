@@ -12,21 +12,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/basic-jquery-slider.js"></script>
-    <!--<script>
-        $(document).ready(function(){
-
-        $('#poster').bjqs({
-        width: 400,
-        height: 500,
-        showMarkers: true,
-        'showControls' : false,
-        'centerMarkers' : false
-        });
-      })
-    </script>-->
     <title>ShowDeeRocks</title>
 </head>
-
+<script>
+    function openPopup(n)
+    {
+        if (n == 1) {//만약 팝업이 오픈이면 closePopup이 호출되도록 해야할듯
+            $('#about').show();
+        } else if (n == 2) {
+            $('#contact').show();
+        }
+    }
+    function closePopup(n)
+    {
+        if (n == 1) {
+            $('#about').hide();
+        } else if (n == 2) {
+            $('#contact').hide();
+        }
+    }
+</script>
 <body>
     
     <div id="box" class="vcenter">
@@ -42,7 +47,7 @@
             <!-- Swiper -->
             <div class="swiper mySwiper vcenter" id="left">
                 <div class="swiper-wrapper" id="poster">
-                    <div class="swiper-slide"><img src="src/sample1.jpeg"></div>
+                    <div class="swiper-slide"><img src="src/sample1.jpeg" onClick="location.href='https://naver.com'"></div>
                     <div class="swiper-slide"><img src="src/sample2.jpeg"></div>
                     <div class="swiper-slide"><img src="src/sample3.jpeg"></div>
                 </div>
@@ -75,14 +80,64 @@
             </div>
             <div id='d5'>
                 <div id="aboutBtn">
-                    <p><a href="#"><span class="to-right-underline">ABOUT</span></a>&nbsp;&nbsp;</p>
+                    <p><a href="javascript:openPopup(1);"><span class="to-right-underline">ABOUT</span></a>&nbsp;&nbsp;</p>
                 </div>
                 <div id="contactBtn">
-                    <p>&nbsp;&nbsp;<a href="#"><span class="to-right-underline">CONTACT</span></a></p>
+                    <p>&nbsp;&nbsp;<a href="javascript:openPopup(2);"><span class="to-right-underline">CONTACT</span></a></p>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="popup" id="about">
+        <div class="popup_column">
+            <span>ABOUT</span>
+            <a href="#" onclick="javascript:closePopup(1);"><i class="fas fa-times"></i></a>
+        </div>
+        <div class="popup_column">
+            <h4>[showdeerocks] / since 2019.10.01</h2>
+        </div>
+        <div class="popup_column">
+            <div class="popup_column_text">
+                <pre>
+- 쇼디락스는 인디 공연 정보를 제공하는 사이트 / 서비스입니다.
+- 공연 정보 플랫폼이 없는 것이 불편해서 직접 만들었습니다.
+- 인디가 아닌 아티스트의 공연이 게시되는 경우도 있습니다.
+- 공연 등록은 전부 수동으로 이뤄집니다.
+                </pre>
+            </div>            
+        </div>
+    </div>
+
+    <div class="popup" id="contact">
+        <div class="popup_column">
+            <span>CONTACT</span>
+            <a href="#" onclick="javascript:closePopup(2);"><i class="fas fa-times"></i></a>
+        </div>
+        <div class="popup_column">
+            <h4>showdeerocks info</h2>
+        </div>
+        <div class="popup_column">
+            <div class="popup_column_text">
+                <pre>
+EMAIL
+[showdee_rocks@naver.com](mailto:showdee_rocks@naver.com)
+
+PHONE
++82 10-2029-6027
+
+<a href="https://twitter.com/showdee_rocks">Twitter <i class="fab fa-twitter-square"></i></a>
+<a href="https://www.instagram.com/showdeerocks/">Instagram <i class="fab fa-instagram-square"></i></a>
+                </pre>
+            </div>            
+        </div>
+    </div>
+
+
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
 
 
     <!-- Swiper JS -->

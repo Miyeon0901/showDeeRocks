@@ -18,7 +18,20 @@ html, body {
     text-align: center;
 }
 .Logo img {
-  width: 50%;
+  width: 35%;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+  background: #eeeeee;
+  border-radius: 5px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 5px;
 }
 header {
   z-index:1000;
@@ -26,7 +39,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  height: 70px;
+  height: 30px;
   padding: 1rem;
   background-color: black;
   /* background:radial-gradient(ellipse farthest-corner at center top, #222222 0%, #e5e4e6 100%); */
