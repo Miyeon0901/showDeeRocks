@@ -61,7 +61,7 @@ function showCalendar()
 
     </head>
     
-    <body>
+<body>
 <!--고정 메뉴-->
 <header>
          <!-- <div style="float:left;">
@@ -184,7 +184,7 @@ function showCalendar()
          $count=0;
          echo "<br><br>";
          echo "<b>";
-         $prevRow=$row["CON_DATE"];
+         $prevRow=$rowATE"];
          $outDate=date("m월 d일",strtotime($prevRow));
          $conYoil=$yoil[date('w', strtotime($prevRow))];
          if($conYoil=="일"){
