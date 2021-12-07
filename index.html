@@ -18,9 +18,19 @@
     function openPopup(n)
     {
         if (n == 1) {//만약 팝업이 오픈이면 closePopup이 호출되도록 해야할듯
+            if($('#about').css('display')=='none'){
             $('#about').show();
+            }
+            else{
+                $('#about').hide();
+            }
         } else if (n == 2) {
+            if($('#contact').css('display')=='none'){
             $('#contact').show();
+            }
+            else{
+                $('#contact').hide();
+            }
         }
     }
     function closePopup(n)
@@ -103,7 +113,6 @@
 - 쇼디락스는 인디 공연 정보를 제공하는 사이트 / 서비스입니다.
 - 공연 정보 플랫폼이 없는 것이 불편해서 직접 만들었습니다.
 - 인디가 아닌 아티스트의 공연이 게시되는 경우도 있습니다.
-- 공연 등록은 전부 수동으로 이뤄집니다.
                 </pre>
             </div>            
         </div>
