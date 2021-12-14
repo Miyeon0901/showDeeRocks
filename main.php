@@ -20,9 +20,28 @@
                 conId : con_id,
             },
             success : function(res) {
-                if(res) {
-                    $("#detailContents").text(res);
-                }
+               if(res) {
+                  data = JSON.parse(res);
+                  $("#explainTitle").text(data.artist);
+                  //$("#explainLink").text(data.CON_LINK);
+                  $("#explainPnC").text(data.place);
+                  $("#conLink").attr("href",data.CON_LINK);
+      //             <div id="detailContents" style="height:100vh;">
+      //    <div id="imgLine" style="height:100%;width:50%;float:left;"></div>
+      //    <div id="explainLine" style="height:100%;width:50%;float:right;">
+      //       <div id="explainTitle" style="height:30%;background-color:indigo;"></div>
+      //       <div id="explainPnC" style="height:50%;background-color:black;"></div>
+      //       <div id="explainLink" style="height:20%;background-color:blue;"></div>
+   
+      //    </div>
+         
+      // {"CON_DATE":"2021-08-27","CON_ID":"210827002","ENTRYTYPE":"\uc608\ub9e4\ub9c1\ud06c",
+      //       "CON_LINK":"https:\/\/ticket.melon.com\/performance\/index.htm?prodId=206106",
+      //       "place":"\uc6e8\uc2a4\ud2b8\ube0c\ub9bf\uc9c0 \ub77c\uc774\ube0c\ud640",
+      //       "artist":"\ub514\uc5b4\ud074\ub77c\uc6b0\ub4dc,\ucf54\ud1a0\ubc14"}
+      
+      // </div>
+               }
             }
         });
     }
@@ -217,15 +236,12 @@ window.location = linkLocation;
    <!-- </div>conText div end -->
    <td style="width:50%;">
       <div id="detailContents" style="height:100vh;">
-         <!-- <div id="imgLine" style="height:100%;width:50%;float:left;"></div>
+         <div id="imgLine" style="height:100%;width:50%;float:left;"></div>
          <div id="explainLine" style="height:100%;width:50%;float:right;">
-            <div id="explainTitle" style="height:30%;background-color:indigo;"></div>
-            <div id="explainPnC" style="height:50%;background-color:black;"></div>
-            <div id="explainLink" style="height:20%;background-color:blue;"></div>
-         </div> -->
-         
-         
-      
+            <div id="explainTitle" style="height:30%;"></div>
+            <div id="explainPnC" style="height:50%;"></div>
+            <div id="explainLink" style="height:20%;"><a id="conLink" href="#">링크</a></div>
+         </div>  
       </div>
    </td></tr></table>
    </div> <!--mainContents div end-->
