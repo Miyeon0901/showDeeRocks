@@ -22,10 +22,13 @@
             success : function(res) {
                if(res) {
                   data = JSON.parse(res);
-                  $("#explainTitle").text(data.artist);
+                  $("#explainTitle").text(data.CON_NAME); //공연명
+                  $("#explainArtist").text(data.artist); //출연진
                   //$("#explainLink").text(data.CON_LINK);
-                  $("#explainPnC").text(data.place);
-                  $("#conLink").attr("href",data.CON_LINK);
+                  $("#explainPnC").text(data.place); //장소
+                  $("#explainTime").text(data.CON_TIME); //시간
+                  $("#explainPrice").text(data.CON_PRICE); //가격
+                  $("#conLink").attr("href",data.CON_LINK); //예매링크
       //             <div id="detailContents" style="height:100vh;">
       //    <div id="imgLine" style="height:100%;width:50%;float:left;"></div>
       //    <div id="explainLine" style="height:100%;width:50%;float:right;">
@@ -76,7 +79,14 @@ window.location = linkLocation;
       }
    }
 </script>
-
+<style>
+   /* 공연정보 디테일 스타일 #explainLine */
+   .explainColumn {display:flex; flex-direction:row; align-items:center; margin:10px 0;}
+   .extitle {width:90px; padding:15px 10px 15px 0; text-align:center;}
+   .exdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;}
+   #explainLine{padding:20px 0; width:100%; display:flex; flex-direction:column; align-items:center;}
+   #explainTitle{font-weight:bold; font-size:20px;}
+</style>
 
     </head>
     
@@ -235,13 +245,38 @@ window.location = linkLocation;
    </td>
    <!-- </div>conText div end -->
    <td style="width:50%;">
-      <div id="detailContents" style="height:100vh;">
-         <div id="imgLine" style="height:100%;width:50%;float:left;"></div>
-         <div id="explainLine" style="height:100%;width:50%;float:right;">
-            <div id="explainTitle" style="height:30%;"></div>
-            <div id="explainPnC" style="height:50%;"></div>
-            <div id="explainLink" style="height:20%;"><a id="conLink" href="#">링크</a></div>
-         </div>  
+      <div id="detailContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
+         <div id="imgLine">
+            <img src="src/sample2.jpeg">
+         </div>
+
+         <div id="explainLine">
+            <div class="explainColumn">
+               <!-- <div class="extitle">공연명</div> -->
+               <div id="explainTitle"></div>
+            </div>
+            <div class="explainColumn">
+               <div class="extitle">출연진</div>
+               <div class="exdetail" id="explainArtist"></div>
+            </div>
+            <div class="explainColumn">
+               <div class="extitle">장소</div>
+               <div class="exdetail" id="explainPnC"></div>
+            </div>
+            <div class="explainColumn">
+               <div class="extitle">공연시간</div>
+               <div class="exdetail" id="explainTime"></div>
+            </div>
+            <div class="explainColumn">
+               <div class="extitle">가격정보</div>
+               <div class="exdetail" id="explainPrice"></div>
+            </div>
+            <div class="explainColumn">
+               <div class="extitle">예매처</div>
+               <div class="exdetail" id="explainLink"><a id="conLink" href="#">예매하기</a></div>
+            </div>
+         </div>
+
       </div>
    </td></tr></table>
    </div> <!--mainContents div end-->
