@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=7dgihuvglz&submodules=geocoder"></script>
   <script>
     function showDetail(con_id) {
       $.ajax({
@@ -29,25 +30,68 @@
                   $("#explainTime").text(data.CON_TIME); //시간
                   $("#explainPrice").text(data.CON_PRICE); //가격
                   $("#conLink").attr("href",data.CON_LINK); //예매링크
-      //             <div id="detailContents" style="height:100vh;">
-      //    <div id="imgLine" style="height:100%;width:50%;float:left;"></div>
-      //    <div id="explainLine" style="height:100%;width:50%;float:right;">
-      //       <div id="explainTitle" style="height:30%;background-color:indigo;"></div>
-      //       <div id="explainPnC" style="height:50%;background-color:black;"></div>
-      //       <div id="explainLink" style="height:20%;background-color:blue;"></div>
-   
-      //    </div>
-         
-      // {"CON_DATE":"2021-08-27","CON_ID":"210827002","ENTRYTYPE":"\uc608\ub9e4\ub9c1\ud06c",
-      //       "CON_LINK":"https:\/\/ticket.melon.com\/performance\/index.htm?prodId=206106",
-      //       "place":"\uc6e8\uc2a4\ud2b8\ube0c\ub9bf\uc9c0 \ub77c\uc774\ube0c\ud640",
-      //       "artist":"\ub514\uc5b4\ud074\ub77c\uc6b0\ub4dc,\ucf54\ud1a0\ubc14"}
-      
-      // </div>
                }
             }
         });
     }
+    var mapOptions = {
+         center: new naver.maps.LatLng(37.3595704, 127.105399),
+         zoom: 30,
+         mapTypeControl: true
+      };
+      var infoWindow = new naver.maps.InfoWindow({
+         anchorSkew: true
+      });
+   var map;
+   function showSite() {
+      
+      $.ajax({
+            url : "showSite.php",
+            type : "post",
+            data : {
+                //conId : con_id,
+            },
+            success : function(res) {
+               if(res) {
+                  data = JSON.parse(res);
+                  //alert(data.map);
+                  
+     
+                  map = new naver.maps.Map('map', mapOptions);
+                  searchAddressToCoordinate(data.map);
+                  
+               }
+            }
+         
+      });
+      
+   }
+
+    function searchAddressToCoordinate(address) {
+       //alert(address);
+  naver.maps.Service.geocode({
+    query: address
+  }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+      if (!address) {
+        return alert('Geocode Error, Please check address');
+      }
+      return alert('Geocode Error, address:' + address);
+    }
+
+    if (response.v2.meta.totalCount === 0) {
+      return alert('No result.');
+    }
+    var item = response.v2.addresses[0];
+    var point = new naver.maps.Point(item.x, item.y);
+    infoWindow.setContent([
+      address
+    ].join('\n'));
+    map.setCenter(point);
+    infoWindow.open(map, point);
+  });
+}
+
  </script>
  <script>
 jQuery(function($) {
@@ -191,7 +235,7 @@ window.location = linkLocation;
     }
     $count++;
     
-    echo $row["artist"]. "-<b>" . $row["place"]."</b><a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
+    echo $row["artist"]. "-<b><a href='javascript:showSite();'>" . $row["place"]."</a></b><a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
     }
     }else{
     echo "테이블에 데이터가 없습니다.";
@@ -245,6 +289,9 @@ window.location = linkLocation;
    </td>
    <!-- </div>conText div end -->
    <td style="width:50%;">
+   <div id="map" style="width:100%;height:400px;"></div>
+
+
       <div id="detailContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
          <div id="imgLine">
             <img src="src/sample2.jpeg">
