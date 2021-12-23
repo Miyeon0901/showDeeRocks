@@ -105,10 +105,20 @@
        $count=0;
     }
     $count++;
-    
-    
-
-    echo "<a href='javascript:showSite();'>".$row["artist"]."</a>". "-<b><a href='javascript:showSite(".$row["SITE"].");'>" . $row["place"]."</a></b><a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
+   
+    $artists = [];
+    $artist = strtok($row["artist"], ",");
+    //echo "<a>".$artist."</h1>";
+   while( $artist !== false) {
+       $artists[] = $artist;
+       echo "<a href='javascript:showArtist(".json_encode($artist).");'>".$artist."</a>";
+       $artist = strtok(",");
+       if ($artist !== false)
+         echo ", ";
+    }
+   
+    echo "-<b><a href='javascript:showSite(".$row["SITE"].");'>".$row["place"]."</a></b>";
+    echo "<a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
     }
     }else{
     echo "테이블에 데이터가 없습니다.";

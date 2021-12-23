@@ -2,6 +2,7 @@
 function showDetail(con_id) {
     $('#siteContents').hide();
     $('#detailContents').show();
+    $("#artistContents").hide();
     $.ajax({
         url: "showDetail.php",
         type: "post",
@@ -41,6 +42,7 @@ var marker;
 function showSite(siteId) {
     $('#siteContents').show();
     $('#detailContents').hide();
+    $("#artistContents").hide();
     $.ajax({
         url: "showSite.php",
         type: "post",
@@ -100,21 +102,40 @@ function searchAddressToCoordinate(address) {
 // });
 
 function showArtist(art_id) {
-      
+    alert(art_id);
+    $('#siteContents').hide();
+    $('#detailContents').hide();
+    $("#artistContents").show();
     $.ajax({
-          url : "showArtist.php",
-          type : "post",
-          data : {
-             artistId : art_id,
-          },
-          success : function(res) {
-             if(res) {
+        url: "showArtist.php",
+        type: "post",
+        data: {
+            artId: art_id,
+        },
+        success: function (res) {
+            if (res) {
                 data = JSON.parse(res);
-                $("#artistIntro").text(data.ART_INTRO); //소개
-                $("#artLink").attr("href",data.ART_LINK); //링크
-             }
-          }
-       
+                $("#artistIntro").text(data.ART_INTRO); 
+                //$("#artLink").text(data.artist); //출연진
+            }
+        }
     });
+    // $.ajax({
+    //       url : "showArtist.php",
+    //       type : "post",
+    //       data : {
+    //          artistId : art_id,
+    //       },
+    //       success : function(res) {
+    //         //alert('hello');
+    //          if(res) {
+    //             data = JSON.parse(res);
+                
+    //             $("#artistIntro").text(data.ART_INTRO); //소개
+    //             $("#artLink").attr("href",data.ART_LINK); //링크
+    //          }
+    //       }
+       
+    // });
     
  }

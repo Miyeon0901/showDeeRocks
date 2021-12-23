@@ -1,8 +1,10 @@
 
 <?php
 include_once("db_connect.php");
-$siteId = '2001001';
-$sqlEvents = "SELECT * from artist where ART_ID=".$artistId;
+$artId = $_POST['artId'];
+echo "alert(".$artistId.")";
+$sqlEvents = "SELECT * from artist where ART_ID=".$artId;
+// "SELECT * from artist where ART_ID=".$artistId;
 $result = mysqli_query($conn, $sqlEvents);
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
