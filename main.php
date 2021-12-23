@@ -106,6 +106,7 @@
     }
     $count++;
     
+    
 
     echo "<a href='javascript:showSite();'>".$row["artist"]."</a>". "-<b><a href='javascript:showSite(".$row["SITE"].");'>" . $row["place"]."</a></b><a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
     }
@@ -196,6 +197,9 @@
       </div>
 
       <div id="siteContents" style="display:none;">
+         <div id="siteNm"></div>
+         <img id="siteImg" src="#"/>
+         <div id="siteAddr"></div>
          <div id="map" style="width:100%;height:400px;"></div>
       </div>
 
