@@ -30,8 +30,9 @@
 <style>
    /* 공연,아티스트 정보 디테일 스타일 #explainLine */
    .explainColumn, .artistColumn {display:flex; flex-direction:row; align-items:center; margin:10px 0;}
-   .extitle, .arttitle {width:90px; padding:15px 10px 15px 0; text-align:center;}
-   .exdetail, .artdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;}
+   .extitle, .arttitle {width:90px; padding:15px 10px 15px 0; text-align:center; font-weight:bold;}
+   .exdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold; background-color: black; color: white;}
+   .artdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;}
    #explainLine{padding:20px 0; width:100%; display:flex; flex-direction:column; align-items:center;}
    #explainTitle{font-weight:bold; font-size:20px;}
 </style>
