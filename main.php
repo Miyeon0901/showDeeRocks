@@ -289,7 +289,7 @@ window.location = linkLocation;
    </td>
    <!-- </div>conText div end -->
    <td style="width:50%;">
-   <div id="map" style="width:100%;height:400px;"></div>
+   
 
 
       <div id="detailContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
@@ -324,7 +324,12 @@ window.location = linkLocation;
             </div>
          </div>
 
-      </div>
+   </div>
+   <div id="siteContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
+         <div id="map" style="width:100%;height:400px;"></div>
+   </div>
+   <div id="artistContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
+   </div>
    </td></tr></table>
    </div> <!--mainContents div end-->
    
