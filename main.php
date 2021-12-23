@@ -11,26 +11,27 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=7dgihuvglz&submodules=geocoder"></script>
+
 <script>
-jQuery(function ($) {
-    var conId = '';
-    $("body").css("display", "none");
-    $("body").fadeIn(500);
-    $("a.transition").click(function (event) {
-        event.preventDefault();
-        linkLocation = this.href;
-        $("body").fadeOut(500, redirectPage);
-    });
-    function redirectPage() {
-        window.location = linkLocation;
-    }
-});
+   jQuery(function ($) {
+      var conId = '';
+      $("body").css("display", "none");
+      $("body").fadeIn(500);
+      $("a.transition").click(function (event) {
+         event.preventDefault();
+         linkLocation = this.href;
+         $("body").fadeOut(500, redirectPage);
+      });
+      function redirectPage() {
+         window.location = linkLocation;
+      }
+   });
 </script>
 <style>
-   /* 공연정보 디테일 스타일 #explainLine */
-   .explainColumn {display:flex; flex-direction:row; align-items:center; margin:10px 0;}
-   .extitle {width:90px; padding:15px 10px 15px 0; text-align:center;}
-   .exdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;}
+   /* 공연,아티스트 정보 디테일 스타일 #explainLine */
+   .explainColumn, .artistColumn {display:flex; flex-direction:row; align-items:center; margin:10px 0;}
+   .extitle, .arttitle {width:90px; padding:15px 10px 15px 0; text-align:center;}
+   .exdetail, .artdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;}
    #explainLine{padding:20px 0; width:100%; display:flex; flex-direction:column; align-items:center;}
    #explainTitle{font-weight:bold; font-size:20px;}
 </style>
@@ -105,7 +106,8 @@ jQuery(function ($) {
     }
     $count++;
     
-    echo $row["artist"]. "-<b><a href='javascript:showSite(".$row["SITE"].");'>" . $row["place"]."</a></b><a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
+
+    echo "<a href='javascript:showSite();'>".$row["artist"]."</a>". "-<b><a href='javascript:showSite(".$row["SITE"].");'>" . $row["place"]."</a></b><a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
     }
     }else{
     echo "테이블에 데이터가 없습니다.";
@@ -160,8 +162,6 @@ jQuery(function ($) {
    <!-- </div>conText div end -->
    <td style="width:50%;">
    
-
-
       <div id="detailContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
          <div id="imgLine">
             <img src="src/sample2.jpeg">
@@ -193,11 +193,25 @@ jQuery(function ($) {
                <div class="exdetail" id="explainLink"><a id="conLink" href="#">예매하기</a></div>
             </div>
          </div>
+      </div>
 
-   </div>
-   <div id="siteContents" style="display: none;">
-      <div id="map" style="width:100%;height:400px;"></div>
-   </div>
+      <div id="siteContents" style="display:none;">
+         <div id="map" style="width:100%;height:400px;"></div>
+      </div>
+
+      <div id="artistContents" style="display:none;">
+         <div id="explainLine">
+            <div class="artistColumn">
+               <div class="arttitle">소개</div>
+               <div class="artdetail" id="artistIntro"></div>
+            </div>
+            <div class="artistColumn">
+               <div class="arttitle">링크</div>
+               <div class="artdetail" id="artistLink"><a id="artLink" href="#">아티스트 더보기</a></div>
+            </div>
+         </div>
+      </div>
+
    </td></tr></table>
    </div> <!--mainContents div end-->
    

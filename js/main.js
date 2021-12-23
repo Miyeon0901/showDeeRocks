@@ -105,3 +105,23 @@ function searchAddressToCoordinate(address) {
 // naver.maps.Event.addListener(map, 'click', function(e) {
 //     marker.setPosition(e.latlng);
 // });
+
+function showArtist(art_id) {
+      
+    $.ajax({
+          url : "showArtist.php",
+          type : "post",
+          data : {
+             artistId : art_id,
+          },
+          success : function(res) {
+             if(res) {
+                data = JSON.parse(res);
+                $("#artistIntro").text(data.ART_INTRO); //소개
+                $("#artLink").attr("href",data.ART_LINK); //링크
+             }
+          }
+       
+    });
+    
+ }
