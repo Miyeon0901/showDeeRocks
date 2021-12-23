@@ -67,6 +67,26 @@
       
    }
 
+   function showArtist(art_id) {
+      
+      $.ajax({
+            url : "showArtist.php",
+            type : "post",
+            data : {
+               artistId : art_id,
+            },
+            success : function(res) {
+               if(res) {
+                  data = JSON.parse(res);
+                  $("#artistIntro").text(data.ART_INTRO); //소개
+                  $("#artLink").attr("href",data.ART_LINK); //링크
+               }
+            }
+         
+      });
+      
+   }
+
     function searchAddressToCoordinate(address) {
        //alert(address);
   naver.maps.Service.geocode({
@@ -124,10 +144,10 @@ window.location = linkLocation;
    }
 </script>
 <style>
-   /* 공연정보 디테일 스타일 #explainLine */
-   .explainColumn {display:flex; flex-direction:row; align-items:center; margin:10px 0;}
-   .extitle {width:90px; padding:15px 10px 15px 0; text-align:center;}
-   .exdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;}
+   /* 공연,아티스트 정보 디테일 스타일 #explainLine */
+   .explainColumn, .artistColumn {display:flex; flex-direction:row; align-items:center; margin:10px 0;}
+   .extitle, .arttitle {width:90px; padding:15px 10px 15px 0; text-align:center;}
+   .exdetail, .artdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;}
    #explainLine{padding:20px 0; width:100%; display:flex; flex-direction:column; align-items:center;}
    #explainTitle{font-weight:bold; font-size:20px;}
 </style>
@@ -235,7 +255,7 @@ window.location = linkLocation;
     }
     $count++;
     
-    echo $row["artist"]. "-<b><a href='javascript:showSite();'>" . $row["place"]."</a></b><a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
+    echo "<a href='javascript:showSite();'>".$row["artist"]."</a>". "-<b><a href='javascript:showSite();'>" . $row["place"]."</a></b><a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
     }
     }else{
     echo "테이블에 데이터가 없습니다.";
@@ -290,8 +310,6 @@ window.location = linkLocation;
    <!-- </div>conText div end -->
    <td style="width:50%;">
    
-
-
       <div id="detailContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
          <div id="imgLine">
             <img src="src/sample2.jpeg">
@@ -323,13 +341,25 @@ window.location = linkLocation;
                <div class="exdetail" id="explainLink"><a id="conLink" href="#">예매하기</a></div>
             </div>
          </div>
+      </div>
 
-   </div>
-   <div id="siteContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
+      <div id="siteContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
          <div id="map" style="width:100%;height:400px;"></div>
-   </div>
-   <div id="artistContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
-   </div>
+      </div>
+
+      <div id="artistContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
+         <div id="explainLine">
+            <div class="artistColumn">
+               <div class="arttitle">소개</div>
+               <div class="artdetail" id="artistIntro"></div>
+            </div>
+            <div class="artistColumn">
+               <div class="arttitle">링크</div>
+               <div class="artdetail" id="artistLink"><a id="artLink" href="#">아티스트 더보기</a></div>
+            </div>
+         </div>
+      </div>
+
    </td></tr></table>
    </div> <!--mainContents div end-->
    
