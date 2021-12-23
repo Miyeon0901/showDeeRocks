@@ -34,19 +34,20 @@ function showCalendar() {
     }
 }
 
-var mapOptions = {
-    zoom: 20,
-    mapTypeControl: true
-};
-var markerOptions = {
-    map: map,
-    icon: 'img/tick.png'
-};
+// var mapOptions = {
+//     zoom: 20,
+//     mapTypeControl: true
+// };
+// var markerOptions = {
+//     map: map,
+//     icon: 'img/tick.png'
+// }
 // var infoWindow = new naver.maps.InfoWindow({
 //     anchorSkew: true
 // });
 var map;
 var marker;
+
 function showSite(siteId) {
     $('#siteContents').show();
     $('#detailContents').hide();
@@ -59,7 +60,16 @@ function showSite(siteId) {
         success: function (res) {
             if (res) {
                 data = JSON.parse(res);
+                var mapOptions = {
+                    zoom: 20,
+                    mapTypeControl: true
+                };
                 map = new naver.maps.Map('map', mapOptions);
+                var markerOptions = {
+                    map: map,
+                    //icon: 'img/tick.png'
+                }
+                
                 marker = new naver.maps.Marker(markerOptions);
                 searchAddressToCoordinate(data.map);
             }
