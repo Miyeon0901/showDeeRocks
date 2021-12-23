@@ -54,7 +54,8 @@
       
      
      <div id="checkLine">
-        <a href="javascript:showCalendar();">달력이미지</a>
+        <a href="javascript:showCalendar();" id="cal1"><img src="src/cal.jpg"></a>
+        <a href="javascript:showCalendar();" id="cal2" class="hidden"><img src="src/calBlack.png"></a>
         Filter : 
         <a href="#" class="blue">[신규공연]</a> 
         <a href="#" style="color: aquablue important!;">[무료공연]</a> 
