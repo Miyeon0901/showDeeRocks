@@ -33,11 +33,13 @@
 <style>
    /* 공연,아티스트 정보 디테일 스타일 #explainLine */
    .explainColumn, .artistColumn {display:flex; flex-direction:row; align-items:center; margin:10px 0;}
-   .extitle, .arttitle {width:90px; padding:15px 10px 15px 0; text-align:center; font-weight:bold;}
-   .exdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold; background-color: black; color: white;}
-   .artdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;}
-   #explainLine{padding:20px 0; width:100%; display:flex; flex-direction:column; align-items:center;}
-   #explainTitle{font-weight:bold; font-size:20px;}
+   .extitle, .arttitle {width:90px; padding:15px 10px 15px 0; text-align:center;}
+   .exdetail, .artdetail {width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;}   #explainLine{padding:20px 0; width:100%; display:flex; flex-direction:column; align-items:center;}   #explainTitle{font-weight:bold; font-size:20px;}
+   #siteContents{display:flex; flex-direction:column; align-items:center; margin:10px 0;}
+   .siteColumn{width:100%;padding:20px 15px;}
+   #siteNm{font-weight:bold; font-size:20px; text-align:center; background-color:black; color:white;}
+   #siteImg{width:300px;}
+   #siteAddr{font-weight:bold; font-size:15px; text-align:center;}
 </style>
 
     </head>
@@ -73,7 +75,10 @@
       <td style="width:50%;">
 
 <div class='conOn' id='conAll' style="height:100vh; overflow-y:scroll;">
+
 </div><!--conAll div End-->
+
+
 
    </td>
    <!-- </div>conText div end -->
@@ -113,10 +118,10 @@
       </div>
 
       <div id="siteContents" style="display:none;">
-         <div id="siteNm"></div>
-         <img id="siteImg" src="#"/>
-         <div id="siteAddr"></div>
-         <div id="map" style="width:100%;height:400px;"></div>
+         <div class="siteColumn" id="siteNm"></div>
+         <img class="siteColumn" id="siteImg" src="#"/>
+         <div class="siteColumn" id="siteAddr"></div>
+         <div class="siteColumn" id="map" style="width:100%;height:400px;padding:20px 15px;"></div>
       </div>
 
       <div id="artistContents" style="display:none;">
@@ -149,7 +154,7 @@
             <a href="https://twitter.com/showdee_rocks?ref_src=twsrc%5Etfw"><img src="src/sns1.png"></a>
             <a href="https://www.instagram.com/showdeerocks"><img src="src/sns3.png"></a>
 
-</footer>	
+</footer>   
 </body>
 
 </html>
