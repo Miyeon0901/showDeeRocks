@@ -13,7 +13,7 @@ include('container.php');
 	<div class="page-header">
 		<div class="pull-right form-inline">
 			<div class="btn-group">
-				<button class="btn btn-primary" data-calendar-nav="prev"><< 이전 달</button>
+				<button class="miyeon" id="btnLeft" data-calendar-nav="prev"><< 이전 달</button>
 				<button class="btn btn-default" data-calendar-nav="today">이번 달</button>
 				<button class="btn btn-primary" data-calendar-nav="next">다음 달 >></button>
 			</div>
