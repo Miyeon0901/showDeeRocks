@@ -1,4 +1,20 @@
-
+function showAll(){
+    $.ajax({
+        url: "showAll.php",
+        type: "post",
+        success: function (res) {
+            if (res) {
+                data = jQuery.parseJSON(res);
+                for (let i = 0; i < data.length; i++) {
+                    //$("#conAll").append(i);
+                    $("#conAll").append(data[i].CON_NAME);
+                    $("#conAll").append("[" + data[i].ENTRYTYPE + "]<br>");
+                }
+                 
+            }
+        }
+    });
+}
 function showDetail(con_id) {
     $('#siteContents').hide();
     $('#detailContents').show();

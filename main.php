@@ -13,6 +13,9 @@
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=7dgihuvglz&submodules=geocoder"></script>
 
 <script>
+   $(document).ready(function(){
+      showAll();
+   });
    jQuery(function ($) {
       var conId = '';
       $("body").css("display", "none");
@@ -70,76 +73,7 @@
       <td style="width:50%;">
 
 <div class='conOn' id='conAll' style="height:100vh; overflow-y:scroll;">
-<?php
-   $conn = mysqli_connect("showdeedb.cipqx10duwv3.us-east-2.rds.amazonaws.com", "ShowdeeMaster", "wogusdla1!" , "showdeerocks");
-   $sql = "SELECT CON_DATE, CON_ID,ENTRYTYPE,CON_LINK, SITE, SITE_NAME as place, group_concat(a.ART_NM) as artist, group_concat(c.ARTIST) as artId from concert c join artist a on c.ARTIST = a.ART_ID group by c.CON_ID;";
-   $result = mysqli_query($conn, $sql); 
-   $prevRow=null;
-   $count=0;
-   $yoil = array("일","월","화","수","목","금","토");
-   if (mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-    if($prevRow==$row["CON_DATE"]){
-       echo "<br>";
-    }
-    else{
-       $count=0;
-       echo "<br><br>";
-       echo "<b>";
-       $prevRow=$row["CON_DATE"];
-       $outDate=date("m월 d일",strtotime($prevRow));
-       $conYoil=$yoil[date('w', strtotime($prevRow))];
-       if($conYoil=="일"){
-          echo "<font color=red>";
-       }
-       elseif($conYoil=="토"){
-          echo "<font color=blue>";
-       }
-       else{
-          echo "<font color=black>";
-       }
-       echo $outDate." ".$conYoil."요일";
-       echo "</font></b>";
-       echo "<br>";
-    }
-    if($count==5){
-       echo "<br>";
-       $count=0;
-    }
-    $count++;
-   
-    $artists = [];
-    
-    $artist = strtok($row["artist"], ",");
-    
-    //echo "<a>".$artist."</h1>";
-   while( $artist !== false) {
-       $artists[] = $artist;
-       $artist = strtok(",");
-    }
-
-   $artIds = [];
-   $artId = strtok($row["artId"], ",");
-   while( $artId !== false) {
-      $artIds[] = $artId;
-      $artId = strtok(",");
-   }
-    //json_encode($artists);
-   for ($x = 0; $x < count($artists); $x++) {
-      //$val = json_encode($artists[$x]);
-      echo "<a href='javascript:showArtist(".$artIds[$x].");'>".$artists[$x]."</a>";
-      if ($x < count($artists) - 1)
-         echo ", ";
-   }
-
-    echo "-<b><a href='javascript:showSite(".$row["SITE"].");'>".$row["place"]."</a></b>";
-    echo "<a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
-    }
-    }else{
-    echo "테이블에 데이터가 없습니다.";
-    };
-    ?>
-   </div><!--conAll div End-->
+</div><!--conAll div End-->
 
    </td>
    <!-- </div>conText div end -->
