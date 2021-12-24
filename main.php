@@ -181,17 +181,10 @@
       </div>
 
       <div id="siteContents" style="display:none;">
-<<<<<<< HEAD
          <div class="siteColumn" id="siteNm"></div>
          <img class="siteColumn" id="siteImg" src="#"/>
          <div class="siteColumn" id="siteAddr"></div>
          <div class="siteColumn" id="map" style="width:100%;height:400px;padding:20px 15px;"></div>
-=======
-         <div id="siteNm"></div>
-         <img id="siteImg" src="#"/>
-         <div id="siteAddr"></div>
-         <div id="map" style="width:100%;height:400px;"></div>
->>>>>>> 014de878db345fb6711c076e366e3772cebf9316
       </div>
 
       <div id="artistContents" style="display:none;">
