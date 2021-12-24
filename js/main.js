@@ -34,17 +34,7 @@ function showCalendar() {
     }
 }
 
-// var mapOptions = {
-//     zoom: 20,
-//     mapTypeControl: true
-// };
-// var markerOptions = {
-//     map: map,
-//     icon: 'img/tick.png'
-// }
-// var infoWindow = new naver.maps.InfoWindow({
-//     anchorSkew: true
-// });
+/* 공연장 정보 관련 함수 */
 var map;
 var marker;
 
@@ -60,6 +50,9 @@ function showSite(siteId) {
         success: function (res) {
             if (res) {
                 data = JSON.parse(res);
+                $('#siteNm').text("["+data.SITE_NAME+"]");
+                $('#siteImg').attr("src", data.SITE_IMG);
+                $('#siteAddr').text(data.map);
                 var mapOptions = {
                     zoom: 20,
                     mapTypeControl: true
@@ -67,7 +60,6 @@ function showSite(siteId) {
                 map = new naver.maps.Map('map', mapOptions);
                 var markerOptions = {
                     map: map,
-                    //icon: 'img/tick.png'
                 }
                 
                 marker = new naver.maps.Marker(markerOptions);
@@ -77,6 +69,7 @@ function showSite(siteId) {
     });
 }
 
+/* 주소를 좌표로 변경해주는 함수 */
 function searchAddressToCoordinate(address) {
     naver.maps.Service.geocode({
         query: address
