@@ -102,7 +102,6 @@ function searchAddressToCoordinate(address) {
 // });
 
 function showArtist(art_id) {
-    alert(art_id);
     $('#siteContents').hide();
     $('#detailContents').hide();
     $("#artistContents").show();
@@ -116,26 +115,8 @@ function showArtist(art_id) {
             if (res) {
                 data = JSON.parse(res);
                 $("#artistIntro").text(data.ART_INTRO); 
-                //$("#artLink").text(data.artist); //출연진
+                $("#artLink").attr("href", data.ART_LINK); 
             }
         }
     });
-    // $.ajax({
-    //       url : "showArtist.php",
-    //       type : "post",
-    //       data : {
-    //          artistId : art_id,
-    //       },
-    //       success : function(res) {
-    //         //alert('hello');
-    //          if(res) {
-    //             data = JSON.parse(res);
-                
-    //             $("#artistIntro").text(data.ART_INTRO); //소개
-    //             $("#artLink").attr("href",data.ART_LINK); //링크
-    //          }
-    //       }
-       
-    // });
-    
  }

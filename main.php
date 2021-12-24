@@ -71,7 +71,7 @@
 <div class='conOn' id='conAll' style="height:100vh; overflow-y:scroll;">
 <?php
    $conn = mysqli_connect("showdeedb.cipqx10duwv3.us-east-2.rds.amazonaws.com", "ShowdeeMaster", "wogusdla1!" , "showdeerocks");
-   $sql = "SELECT CON_DATE, CON_ID,ENTRYTYPE,CON_LINK, SITE, SITE_NAME as place, group_concat(artist) as artist from concert group by CON_ID;";
+   $sql = "SELECT CON_DATE, CON_ID,ENTRYTYPE,CON_LINK, SITE, SITE_NAME as place, group_concat(a.ART_NM) as artist, group_concat(c.ARTIST) as artId from concert c join artist a on c.ARTIST = a.ART_ID group by c.CON_ID;";
    $result = mysqli_query($conn, $sql); 
    $prevRow=null;
    $count=0;
@@ -108,16 +108,29 @@
     $count++;
    
     $artists = [];
+    
     $artist = strtok($row["artist"], ",");
+    
     //echo "<a>".$artist."</h1>";
    while( $artist !== false) {
        $artists[] = $artist;
-       echo "<a href='javascript:showArtist(".json_encode($artist).");'>".$artist."</a>";
        $artist = strtok(",");
-       if ($artist !== false)
-         echo ", ";
     }
-   
+
+   $artIds = [];
+   $artId = strtok($row["artId"], ",");
+   while( $artId !== false) {
+      $artIds[] = $artId;
+      $artId = strtok(",");
+   }
+    //json_encode($artists);
+   for ($x = 0; $x < count($artists); $x++) {
+      //$val = json_encode($artists[$x]);
+      echo "<a href='javascript:showArtist(".$artIds[$x].");'>".$artists[$x]."</a>";
+      if ($x < count($artists) - 1)
+         echo ", ";
+   }
+
     echo "-<b><a href='javascript:showSite(".$row["SITE"].");'>".$row["place"]."</a></b>";
     echo "<a href='javascript:showDetail(".$row["CON_ID"].");'>[".$row["ENTRYTYPE"]."]</a>";
     }
@@ -126,50 +139,7 @@
     };
     ?>
    </div><!--conAll div End-->
-   <div class='freeOn' id='freeConView'  style="height:100vh; overflow-y:scroll;">
-   <?php
-    /* 전체공연 end*/
-    /* 무료공연 div */
-    
-    $sqlFree="SELECT CON_DATE, CON_ID,ENTRYTYPE,CON_LINK, s.SITE_NAME as place, group_concat(artist) as artist from concert as co join site as s on s.SITE_ID =co.site where con_price=0 group by CON_ID ;";
-    $resultFree=mysqli_query($conn,$sqlFree);
-      while($row = mysqli_fetch_assoc($resultFree)) {
-      if($prevRow==$row["CON_DATE"]){
-         echo "<br>";
-      }
-      else{
-         $count=0;
-         echo "<br><br>";
-         echo "<b>";
-         $prevRow=$row["CON_DATE"];
-         $outDate=date("m월 d일",strtotime($prevRow));
-         $conYoil=$yoil[date('w', strtotime($prevRow))];
-         if($conYoil=="일"){
-            echo "<font color=red>";
-         }
-         elseif($conYoil=="토"){
-            echo "<font color=blue>";
-         }
-         else{
-            echo "<font color=black>";
-         }
-         echo $outDate.$conYoil."요일";
-         echo "</font></b>";
-         echo "<br><br>";
-      }
-      if($count==5){
-         echo "<br>";
-         $count=0;
-      }
-      $count++;
-      echo $row["artist"]. "-<b>" . $row["place"]."</b><a href='".$row["CON_LINK"]."'>[".$row["ENTRYTYPE"]."]</a>";
-      }
 
-     
-   
-   mysqli_close($conn); // 디비 접속 닫기 
-?>
-</div><!--free div end-->
    </td>
    <!-- </div>conText div end -->
    <td style="width:50%;">
