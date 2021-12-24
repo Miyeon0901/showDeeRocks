@@ -1,16 +1,44 @@
-function showAll(){
+function getYoil(date) {
+    var week = new Array('일', '월', '화', '수', '목', '금', '토');
+    
+    var inDate = new Date(date).getDay();
+    var todayLabel = week[inDate];
+    
+    return todayLabel;
+}
+function showConcert(filter){
     $.ajax({
         url: "showAll.php",
         type: "post",
+        data: {
+            filter: filter,
+        },
         success: function (res) {
+            $("#conAll").html("");
             if (res) {
+                
                 data = jQuery.parseJSON(res);
+                var prevDate = 0;
                 for (let i = 0; i < data.length; i++) {
-                    //$("#conAll").append(i);
-                    $("#conAll").append("[" + data[i].ART_NM + "]<br>");
-                    $("#conAll").append("[" + data[i].CON_NAME + "]<br>");
-                    $("#conAll").append("[" + data[i].SITE_NAME + "]<br>");
-                    $("#conAll").append("[" + data[i].ENTRYTYPE + "]<br>");
+                    if (prevDate == data[i].CON_DATE) {
+                        $("#conAll").append("<br>");
+                    } else {
+                        $("#conAll").append("<br><br>" + data[i].CON_DATE + " (" + getYoil(data[i].CON_DATE) + ")<br><br>");
+                    }
+                    var artStr = data[i].artist;
+                    var artIdStr = data[i].artId;
+                    var artists = artStr.split(",");
+                    var artIds = artIdStr.split(",");
+                    for (let j = 0; j < artists.length; j++) {
+                        var txt = "<a href='javascript:showArtist(" + artIds[j] + ");'>" + artists[j] + "</a>"
+                        $("#conAll").append(txt);
+                        if (j != artists.length - 1)
+                            $("#conAll").append(", ");
+                    }
+                    
+                    $("#conAll").append("-<b><a href='javascript:showSite(" + data[i].SITE + ");'>" + data[i].place + "</a></b>");
+                    $("#conAll").append("<b> <a href='javascript:showDetail(" + data[i].CON_ID + ");'>[" + data[i].ENTRYTYPE + "]</a></b>");
+                    prevDate = data[i].CON_DATE;
                 }
                  
             }
