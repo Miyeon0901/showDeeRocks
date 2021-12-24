@@ -7,7 +7,9 @@ function showAll(){
                 data = jQuery.parseJSON(res);
                 for (let i = 0; i < data.length; i++) {
                     //$("#conAll").append(i);
-                    $("#conAll").append(data[i].CON_NAME);
+                    $("#conAll").append("[" + data[i].ART_NM + "]<br>");
+                    $("#conAll").append("[" + data[i].CON_NAME + "]<br>");
+                    $("#conAll").append("[" + data[i].SITE_NAME + "]<br>");
                     $("#conAll").append("[" + data[i].ENTRYTYPE + "]<br>");
                 }
                  
