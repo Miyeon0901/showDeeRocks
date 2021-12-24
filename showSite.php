@@ -1,6 +1,7 @@
 
 <?php
 include_once("db_connect.php");
+error_reporting(E_ALL);
 $siteId = $_POST['siteId'];
 $sqlEvents = "SELECT * from site where SITE_ID=".$siteId;
 $result = mysqli_query($conn, $sqlEvents);

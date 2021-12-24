@@ -2,6 +2,7 @@
 function showDetail(con_id) {
     $('#siteContents').hide();
     $('#detailContents').show();
+    $("#artistContents").hide();
     $.ajax({
         url: "showDetail.php",
         type: "post",
@@ -28,9 +29,13 @@ function showCalendar() {
     if (display == "hidden") {
         $('#tab02').removeClass('hidden');
         $('#tab01').addClass('hidden');
+        $('#cal1').addClass('hidden');
+        $('#cal2').removeClass('hidden');
     } else {
         $('#tab01').removeClass('hidden');
         $('#tab02').addClass('hidden');
+        $('#cal2').addClass('hidden');
+        $('#cal1').removeClass('hidden');
     }
 }
 
@@ -41,6 +46,7 @@ var marker;
 function showSite(siteId) {
     $('#siteContents').show();
     $('#detailContents').hide();
+    $("#artistContents").hide();
     $.ajax({
         url: "showSite.php",
         type: "post",
@@ -100,21 +106,21 @@ function searchAddressToCoordinate(address) {
 // });
 
 function showArtist(art_id) {
-      
+    $('#siteContents').hide();
+    $('#detailContents').hide();
+    $("#artistContents").show();
     $.ajax({
-          url : "showArtist.php",
-          type : "post",
-          data : {
-             artistId : art_id,
-          },
-          success : function(res) {
-             if(res) {
+        url: "showArtist.php",
+        type: "post",
+        data: {
+            artId: art_id,
+        },
+        success: function (res) {
+            if (res) {
                 data = JSON.parse(res);
-                $("#artistIntro").text(data.ART_INTRO); //소개
-                $("#artLink").attr("href",data.ART_LINK); //링크
-             }
-          }
-       
+                $("#artistIntro").text(data.ART_INTRO); 
+                $("#artLink").attr("href", data.ART_LINK); 
+            }
+        }
     });
-    
  }
