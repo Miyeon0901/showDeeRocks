@@ -29,9 +29,13 @@ function showCalendar() {
     if (display == "hidden") {
         $('#tab02').removeClass('hidden');
         $('#tab01').addClass('hidden');
+        $('#cal1').addClass('hidden');
+        $('#cal2').removeClass('hidden');
     } else {
         $('#tab01').removeClass('hidden');
         $('#tab02').addClass('hidden');
+        $('#cal2').addClass('hidden');
+        $('#cal1').removeClass('hidden');
     }
 }
 
