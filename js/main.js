@@ -58,6 +58,7 @@ function showDetail(con_id) {
         success: function (res) {
             if (res) {
                 data = JSON.parse(res);
+                $("#conImg").attr("src",data.CON_IMG);
                 $("#explainTitle").text(data.CON_NAME); //공연명
                 $("#explainArtist").text(data.artist); //출연진
                 $("#explainPnC").text(data.place); //장소

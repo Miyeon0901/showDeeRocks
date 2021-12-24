@@ -86,7 +86,7 @@
       <div id="defaultContents"> </div>
       <div id="detailContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
          <div id="imgLine">
-            <img src="src/sample2.jpeg">
+          <img src="#" id="conImg">
          </div>
 
          <div id="explainLine">
