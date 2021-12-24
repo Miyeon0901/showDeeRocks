@@ -14,7 +14,7 @@
 
 <script>
    $(document).ready(function(){
-      showAll();
+      showConcert("all");
    });
    jQuery(function ($) {
       var conId = '';
@@ -62,9 +62,9 @@
         <a href="javascript:showCalendar();" id="cal1"><img src="src/cal.jpg"></a>
         <a href="javascript:showCalendar();" id="cal2" class="hidden"><img src="src/calBlack.png"></a>
         Filter : 
-        <a href="#" class="blue">[신규공연]</a> 
-        <a href="#" style="color: aquablue important!;">[무료공연]</a> 
-        <a href="#">[홍대공연]</a>
+        <a href="javascript:showConcert('new');" class="blue">[신규공연]</a> 
+        <a href="javascript:showConcert('free');" style="color: aquablue important!;">[무료공연]</a> 
+        <a href="javascript:showConcert('hd');">[홍대공연]</a>
      </div> 
       <div class="tabcontent">
          <div id="tab01">
@@ -83,7 +83,7 @@
    </td>
    <!-- </div>conText div end -->
    <td style="width:50%;">
-   
+      <div id="defaultContents"> </div>
       <div id="detailContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
          <div id="imgLine">
             <img src="src/sample2.jpeg">
