@@ -126,13 +126,21 @@
 
       <div id="artistContents" style="display:none;">
          <div id="explainLine">
+            <div class="arttitle">이미지</div>
+               <img src="#" id="artistImg">
+         </div>
             <div class="artistColumn">
                <div class="arttitle">소개</div>
                <div class="artdetail" id="artistIntro"></div>
             </div>
             <div class="artistColumn">
                <div class="arttitle">링크</div>
-               <div class="artdetail" id="artistLink"><a id="artLink" href="#">아티스트 더보기</a></div>
+               <div class="artdetail" id="artistLink">
+                  <div id="divLinkHpg"><a id="artLinkHpg" href="#"><img src="src/hpg_ic.jpeg"></a></div>
+                  <div id="divLinkTw"><a id="artLinkTw" href="#"><img src="src/tw_ic.png"></a></div>
+                  <div id="divLinkYout"><a id="artLinkYout" href="#"><img src="src/yout_ic.png"></a></div>
+                  <div id="divLinkInsta"><a id="artLinkInsta" href="#"><img src="src/insta_ic.png"></a></div>
+               </div>
             </div>
          </div>
       </div>

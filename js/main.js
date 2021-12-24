@@ -132,10 +132,40 @@ function showArtist(art_id) {
             artId: art_id,
         },
         success: function (res) {
+            // alert("빡친다");
             if (res) {
                 data = JSON.parse(res);
+                $("#artistImg").attr("src",data.ART_IMG);
                 $("#artistIntro").text(data.ART_INTRO); 
                 $("#artLink").attr("href", data.ART_LINK); 
+                if(data.ART_HPG===null || data.ART_HPG===""){
+                    $('#divLinkHpg').hide();
+                }
+                else{
+                    $('#divLinkHpg').show();
+                    $("#artLinkHpg").attr("href",data.ART_HPG);
+                }
+                if(data.ART_TW===null || data.ART_TW==""){
+                    $('#divLinkTw').hide();
+                }
+                else {
+                    $('#divLinkTw').show();
+                    $("#artLinkTw").attr("href",data.ART_TW);
+                }
+                if(data.ART_YOUT===null || data.ART_YOUT==""){
+                    $('#divLinkYout').hide();
+                }
+                else{
+                    $("#divLinkYout").show();
+                    $("#artLinkYout").attr("href",data.ART_YOUT);
+                }
+                if(data.ART_INSTA===null || data.ART_INSTA==""){
+                    $('#divLinkInsta').hide();
+                }
+                else{
+                    $('#divLinkInsta').show();
+                    $("#artLinkInsta").attr("href",data.ART_INSTA);
+                }
             }
         }
     });
