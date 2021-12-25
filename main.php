@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>ShowDeeRocks</title>
-        <link rel="stylesheet" href="./css/contents.css" type="text/css"> <!-- delete-line -->
+        <link rel="stylesheet" href="css/contents.css" type="text/css"> <!-- delete-line -->
         <script src="js/main.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -11,10 +11,17 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=7dgihuvglz&submodules=geocoder"></script>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="css/basic-jquery-slider.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script>
    $(document).ready(function(){
       showConcert("all");
+      $("#detailContents").hide();
    });
    jQuery(function ($) {
       var conId = '';
@@ -83,7 +90,18 @@
    </td>
    <!-- </div>conText div end -->
    <td style="width:50%;">
-      <div id="defaultContents"> </div>
+      <div id="defaultContents"> 
+      <div class="swiper mySwiper vcenter" id="left">
+                <div class="swiper-wrapper" id="poster">
+                    <div class="swiper-slide"><img src="src/sample1.jpeg" onClick="location.href='https://naver.com'"></div>
+                    <div class="swiper-slide"><img src="src/sample2.jpeg"></div>
+                    <div class="swiper-slide"><img src="src/sample3.jpeg"></div>
+                </div>
+                <div class="swiper-button-next" style="color:white; font-weight: bold;"></div>
+                <div class="swiper-button-prev" style="color:white; font-weight: bold;"></div>
+            </div>
+
+      </div>
       <div id="detailContents" style="height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px 0px;">
          <div id="imgLine">
             <img src="src/sample2.jpeg">

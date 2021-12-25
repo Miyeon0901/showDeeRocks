@@ -2,7 +2,7 @@
 <?php
 include_once("db_connect.php");
 $conId = $_POST['conId'];
-$sqlEvents = "SELECT CON_DATE, CON_ID, ENTRYTYPE, CON_LINK, SITE_NAME as place, group_concat(artist) as artist, CON_TIME, CON_PRICE, CON_NAME from concert where CON_ID=".$conId." group by CON_ID;";
+$sqlEvents = "SELECT CON_DATE, CON_ID, ENTRYTYPE, CON_LINK, SITE_NAME as place, group_concat(a.art_nm) as artist, CON_TIME, CON_PRICE, CON_NAME from concert c join artist a on a.art_id = c.artist where CON_ID=".$conId." group by CON_ID;";
 $result = mysqli_query($conn, $sqlEvents);
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {

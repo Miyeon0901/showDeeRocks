@@ -133,12 +133,6 @@ height:50px;
 .conOn.on{
     display:none;
 }   
-.freeOn{
-    display:none;
-}
-.freeOn.on{
-    display:block;
-}
 
 footer{
   text-align:center;

@@ -23,7 +23,16 @@ function showConcert(filter){
                     if (prevDate == data[i].CON_DATE) {
                         $("#conAll").append("<br>");
                     } else {
-                        $("#conAll").append("<br><br>" + data[i].CON_DATE + " (" + getYoil(data[i].CON_DATE) + ")<br><br>");
+                        var yoil = getYoil(data[i].CON_DATE);
+                        var dateTxt = "<br><br><div";
+                        if (yoil == '토')
+                            dateTxt +=" class='blue'>";
+                        else if(yoil == '일')
+                            dateTxt +=" class='red'>";
+                        else 
+                        dateTxt += ">";
+                        dateTxt += (data[i].CON_DATE + " (" + yoil + ")</div><br>");
+                        $("#conAll").append(dateTxt);
                     }
                     var artStr = data[i].artist;
                     var artIdStr = data[i].artId;
@@ -46,8 +55,9 @@ function showConcert(filter){
     });
 }
 function showDetail(con_id) {
+    $("#defaultContents").hide();
     $('#siteContents').hide();
-    $('#detailContents').show();
+    
     $("#artistContents").hide();
     $.ajax({
         url: "showDetail.php",
@@ -65,6 +75,7 @@ function showDetail(con_id) {
                 $("#explainPrice").text(data.CON_PRICE); //가격
                 $("#conLink").attr("href", data.CON_LINK); //예매링크
             }
+            $('#detailContents').show();
         }
     });
 }
@@ -90,9 +101,10 @@ var map;
 var marker;
 
 function showSite(siteId) {
-    $('#siteContents').show();
+    
     $('#detailContents').hide();
     $("#artistContents").hide();
+    $("#defaultContents").hide();
     $.ajax({
         url: "showSite.php",
         type: "post",
@@ -117,6 +129,7 @@ function showSite(siteId) {
                 marker = new naver.maps.Marker(markerOptions);
                 searchAddressToCoordinate(data.map);
             }
+            $('#siteContents').show();
         }
     });
 }
@@ -154,7 +167,8 @@ function searchAddressToCoordinate(address) {
 function showArtist(art_id) {
     $('#siteContents').hide();
     $('#detailContents').hide();
-    $("#artistContents").show();
+    
+    $("#defaultContents").hide();
     $.ajax({
         url: "showArtist.php",
         type: "post",
@@ -196,6 +210,7 @@ function showArtist(art_id) {
                     $('#divLinkInsta').show();
                     $("#artLinkInsta").attr("href",data.ART_INSTA);
                 }
+                $("#artistContents").show();
             }
         }
     });
