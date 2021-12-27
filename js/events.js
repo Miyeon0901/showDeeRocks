@@ -15,10 +15,11 @@
 			var cnt=0;
 			$.each(events, function(key, val) {
 				$(document.createElement('li'))
-					.html('<a style="display:none;" href="' + val.url + '">' + val.title + '</a>')
+					.html('<a href="' + val.url + '">' + val.title + '</a>')
 					.appendTo(list);
 				cnt++;
 			});
+			list.html(cnt);
 
 		},
 		onAfterViewLoad: function(view) {

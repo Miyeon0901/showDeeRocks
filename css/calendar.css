@@ -202,6 +202,7 @@
 }
 #cal-slide-content ul.unstyled {
   margin-bottom: 0;
+  /* background-color: white; */
 }
 .cal-week-box {
   position: relative;
@@ -482,22 +483,23 @@ span[data-cal-date]:hover {
 }
 #cal-slide-box {
   border-top: 0px solid #8c8c8c;
+  background-color: white;
 }
 #cal-slide-content {
   padding: 20px;
   color: #ffffff;
-  background-image: url("../img/dark_wood.png");
-  -webkit-box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+  /* background-image: url("../img/dark_wood.png"); */
+  /* -webkit-box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5); */
   box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
 }
-#cal-slide-tick {
+/* #cal-slide-tick {
   background-image: url("../img/tick.png?2");
-}
+} */
 #cal-slide-content:hover {
   background-color: transparent;
 }
 #cal-slide-content a.event-item {
-  color: #ffffff;
+  color: black;
   font-weight: normal;
   line-height: 22px;
 }
@@ -525,3 +527,10 @@ a.cal-event-week {
   background-color: yellow;
 }
 
+.btn-warning {
+  border: none !important;
+}
+
+.btn {
+  display: block !important;
+}

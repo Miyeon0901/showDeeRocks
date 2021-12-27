@@ -7,6 +7,34 @@ function getYoil(date) {
     return todayLabel;
 }
 function showConcert(filter){
+    var before;
+    if ($("#newConcert").attr("class") == "pressed" && filter == "new")
+        filter = "all";
+    else if ($("#freeConcert").attr("class") == "pressed" && filter == "free")
+        filter = "all";
+    else if ($("#hdConcert").attr("class") == "pressed" && filter == "hd")
+        filter = "all";
+        
+    if(filter == "all") {
+        $("#newConcert").removeClass("pressed");
+        $("#freeConcert").removeClass("pressed");
+        $("#hdConcert").removeClass("pressed");
+    } else {
+        if (filter == "new") {
+            $("#newConcert").addClass("pressed");
+            $("#freeConcert").removeClass("pressed");
+            $("#hdConcert").removeClass("pressed");
+        } else if (filter == "free") {
+            $("#newConcert").removeClass("pressed");
+            $("#freeConcert").addClass("pressed");
+            $("#hdConcert").removeClass("pressed");
+        } else if (filter == "hd") {
+            $("#newConcert").removeClass("pressed");
+            $("#freeConcert").removeClass("pressed");
+            $("#hdConcert").addClass("pressed");
+        }
+    }
+
     $.ajax({
         url: "showAll.php",
         type: "post",
@@ -19,8 +47,12 @@ function showConcert(filter){
                 
                 data = jQuery.parseJSON(res);
                 var prevDate = 0;
+                var count = 0;
                 for (let i = 0; i < data.length; i++) {
                     if (prevDate == data[i].CON_DATE) {
+                        count++;
+                        if (count % 5 == 0)
+                            $("#conAll").append("<br>");
                         $("#conAll").append("<br>");
                     } else {
                         var yoil = getYoil(data[i].CON_DATE);
@@ -30,9 +62,10 @@ function showConcert(filter){
                         else if(yoil == '일')
                             dateTxt +=" class='red'>";
                         else 
-                        dateTxt += ">";
-                        dateTxt += (data[i].CON_DATE + " (" + yoil + ")</div><br>");
+                            dateTxt += ">";
+                        dateTxt += ("<b>" + data[i].CON_DATE + " (" + yoil + ")</b></div><br>");
                         $("#conAll").append(dateTxt);
+                        count = 0;
                     }
                     var artStr = data[i].artist;
                     var artIdStr = data[i].artId;
@@ -46,6 +79,7 @@ function showConcert(filter){
                     }
                     
                     $("#conAll").append("-<b><a href='javascript:showSite(" + data[i].SITE + ");'>" + data[i].place + "</a></b>");
+                    $("#conAll").append(" <b>" + data[i].CON_TIME + " </b>");
                     $("#conAll").append("<b> <a href='javascript:showDetail(" + data[i].CON_ID + ");'>[" + data[i].ENTRYTYPE + "]</a></b>");
                     prevDate = data[i].CON_DATE;
                 }
@@ -54,10 +88,14 @@ function showConcert(filter){
         }
     });
 }
+
+function priceToString(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
 function showDetail(con_id) {
     $("#defaultContents").hide();
     $('#siteContents').hide();
-    
     $("#artistContents").hide();
     $.ajax({
         url: "showDetail.php",
@@ -67,12 +105,24 @@ function showDetail(con_id) {
         },
         success: function (res) {
             if (res) {
-                data = JSON.parse(res);
-                $("#explainTitle").text(data.CON_NAME); //공연명
-                $("#explainArtist").text(data.artist); //출연진
-                $("#explainPnC").text(data.place); //장소
+                data = JSON.parse(res); 
+                $("#conImg").attr("src",data.CON_IMG);
+                $("#explainTitle").text("[" + data.CON_NAME + "]"); //공연명
+                var artStr = data.artist;
+                var artIdStr = data.artId;
+                var artists = artStr.split(",");
+                var artIds = artIdStr.split(",");
+                $("#explainArtist").html("");
+                for (let j = 0; j < artists.length; j++) {
+                    var txt = "<a href='javascript:showArtist(" + artIds[j] + ");'>" + artists[j] + "</a>"
+                    $("#explainArtist").append(txt);
+                    if (j != artists.length - 1)
+                       $("#explainArtist").append(", ");
+                }
+                $("#explainPnC").html("<a href='javascript:showSite(" + data.SITE +");'>" + data.place + "</a>"); //장소
                 $("#explainTime").text(data.CON_TIME); //시간
-                $("#explainPrice").text(data.CON_PRICE); //가격
+                var price = data.CON_PRICE;
+                $("#explainPrice").text(priceToString(price)); //가격
                 $("#conLink").attr("href", data.CON_LINK); //예매링크
             }
             $('#detailContents').show();
@@ -83,16 +133,18 @@ function showDetail(con_id) {
 function showCalendar() {
     var display = $('#tab02').attr('class');
 
-    if (display == "hidden") {
+    if (display == "hidden") { // 리스트뷰
         $('#tab02').removeClass('hidden');
         $('#tab01').addClass('hidden');
         $('#cal1').addClass('hidden');
         $('#cal2').removeClass('hidden');
-    } else {
+        $('#filter').addClass('hidden');
+    } else { // 달력뷰
         $('#tab01').removeClass('hidden');
         $('#tab02').addClass('hidden');
         $('#cal2').addClass('hidden');
         $('#cal1').removeClass('hidden');
+        $('#filter').removeClass('hidden');
     }
 }
 
@@ -115,7 +167,7 @@ function showSite(siteId) {
             if (res) {
                 data = JSON.parse(res);
                 $('#siteNm').text("["+data.SITE_NAME+"]");
-                $('#siteImg').attr("src", data.SITE_IMG);
+                $('#siteImgtag').attr("src", data.SITE_IMG);
                 $('#siteAddr').text(data.map);
                 var mapOptions = {
                     zoom: 20,
@@ -176,10 +228,10 @@ function showArtist(art_id) {
             artId: art_id,
         },
         success: function (res) {
-            // alert("빡친다");
             if (res) {
                 data = JSON.parse(res);
-                $("#artistImg").attr("src",data.ART_IMG);
+                $('#artistNm').text("[" + data.ART_NM + "]");
+                $("#artistImgtag").attr("src",data.ART_IMG);
                 $("#artistIntro").text(data.ART_INTRO); 
                 $("#artLink").attr("href", data.ART_LINK); 
                 if(data.ART_HPG===null || data.ART_HPG===""){
@@ -215,3 +267,20 @@ function showArtist(art_id) {
         }
     });
  }
+ 
+ function openPopup()
+{
+        
+    if($('#contact').css('display')=='none'){
+            $('#contact').show();
+    }
+    else{
+        $('#contact').hide();
+    }
+
+}
+function closePopup()
+ {  
+            $('#contact').hide();
+        
+    }

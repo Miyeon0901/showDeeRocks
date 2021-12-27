@@ -77,6 +77,7 @@ header h1{
   /* font-family: 'Black Han Sans', sans-serif; */
 }
 
+
 main {
   padding: 1rem;
   height: 100%;  
@@ -252,3 +253,97 @@ nav>li:hover>ul{
 .blue {
   color: blue;
 }
+.red {
+  color: red;
+}
+
+/* 공연,아티스트 정보 디테일 스타일 #explainLine */
+.explainColumn, .artistColumn {display:flex; flex-direction:row; align-items:center; margin:5px 0;}
+   .extitle{width:90px; padding:15px 10px 15px 0; text-align:left;}
+   .arttitle {width:90px; padding:15px 10px 15px 0; text-align:center;}
+   .exdetail{width:200px; padding:15px 10px; border:5px solid black; text-align:center; font-weight:bold;} 
+   .artdetail {width:70%; padding:15px 10px; border:5px solid black; text-align:left; font-weight:bold;} 
+     #explainLine{padding:20px 0; width:100%; display:flex; flex-direction:column; align-items:center;}   
+     #explainTitle{font-weight:bold; font-size:20px; margin:5px 0;}
+   #siteContents{display:flex; flex-direction:column; align-items:center; margin:5px 0;}
+   .siteColumn{width:100%;padding:20px 15px;}
+   #siteNm, #artistNm{ width: 80%;
+    font-weight:bold; font-size:20px; text-align:center;}
+   #siteImg{height:40%; width: auto;}
+   #artistImg{height:30%; width: auto;}
+   #siteImgtag, #artistImgtag{height:100%; width: auto;}
+   #siteAddr{font-weight:bold; font-size:15px; text-align:center;}
+#map {
+  width: 80%;
+  height: 40%;
+}
+
+   /* style="width:100%;height:400px;padding:20px 15px;" */
+   .sidenav{float: right;}
+   .dropdown-btn{color: white; background-color: none;}
+   .dropdown-container{display: flex; flex-direction: column;}
+   /*content1 메뉴바 관련 style*/
+   /* Fixed sidenav, full height */
+   .sidenav {
+   z-index: 1;
+   top: 0;
+   left: 0;
+   background-color: black;
+   overflow-x: hidden;
+   width:12%;
+   opacity: 0.8;
+   float: right;
+   }
+   /* Style the sidenav links and the dropdown button */
+   .sidenav a, .dropdown-btn {
+   text-decoration: none;
+   font-size: 13px;
+   font-weight: 600;
+   display: block;
+   border: none;
+   background-color: black;
+   width: 100%;
+   text-align: left;
+   cursor: pointer;
+   outline: none;
+   color: white;
+   text-align: right;
+   padding: 0 8px 10px 16px;
+   }
+   .sidenav a {
+   padding: 10px 8px 7px 16px;
+   }
+   /* On mouse-over */
+   .sidenav a:hover, .dropdown-btn:hover {
+   color: black;
+   opacity: 1;
+   }
+   /* Main content */
+   .main {
+   margin-left: 200px; /* Same as the width of the sidenav */
+   font-size: 15px; /* Increased text to enable scrolling */
+   padding: 0px 10px;
+   }
+   /* Add an active class to the active dropdown button */
+   .active {
+   background-color: #1D8CDC;
+   color: white;
+   }
+   /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+   .dropdown-container {
+   display: none;
+   }
+   /* Some media queries for responsiveness */
+   @media screen and (max-height: 450px) {
+   .sidenav {padding-top: 15px;}
+   .sidenav a {font-size: 18px;}
+   }
+   .header-column {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+   }
+
+   .pressed {
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+   }
